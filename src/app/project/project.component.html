@@ -14,7 +14,7 @@
             </span>
         </li>
     </ul>
-    <button id = "new">NEW</button>
-    <button id = "delete">DELETE</button>
+    <button id = "new" (click)="onClickNew()">NEW</button>
+    <button id = "delete" (click)="onClickDelete()">DELETE</button>
 </div>
 <app-todo [todo]="activeTodo"></app-todo>

@@ -16,7 +16,8 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit(): void {
     todos.forEach(todo => this.project.push(todo));
-    this.project.active = -1;
+    this.project.active = 0;
+    this.activeTodo = this.project[this.project.active];
   }
 
   onMouseClick(index: number) {
@@ -24,4 +25,15 @@ export class ProjectComponent implements OnInit {
     this.activeTodo = this.project[index];
   }
 
+  onClickDelete() {
+    this.project.remove();
+    this.onMouseClick(this.project.active);
+  }
+
+  onClickNew() {
+    this.project.new();
+    const active = this.project.length - 1;
+    this.onMouseClick(active);
+    this.activeTodo.priority = 'low';
+  }
 }
