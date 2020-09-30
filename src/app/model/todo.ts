@@ -9,8 +9,8 @@ export class Todo {
         this._notes = [];
     }
 
-    set title(t: string) {
-        this._title = t;
+    set title(title: string) {
+        this._title = title;
     }
     
     get title() {
