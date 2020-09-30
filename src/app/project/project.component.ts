@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Project } from '../model/project';
 import { Todo } from '../model/todo';
 import { todos } from '../sampletodos';
@@ -9,15 +9,14 @@ import { todos } from '../sampletodos';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
-  public project = new Project('ToDo List');
+  @Input() public project = new Project('');
   public activeTodo: Todo;
   
   constructor() { }
 
   ngOnInit(): void {
-    todos.forEach(todo => this.project.push(todo));
-    this.project.active = 0;
-    this.activeTodo = this.project[this.project.active];
+    const active = this.project.active;
+    this.onMouseClick(active);
   }
 
   onMouseClick(index: number) {
@@ -35,5 +34,10 @@ export class ProjectComponent implements OnInit {
     const active = this.project.length - 1;
     this.onMouseClick(active);
     this.activeTodo.priority = 'low';
+  }
+
+  onChangeTitle(e) {
+    const inputTitle = e.target;
+    this.project.title = inputTitle.value;
   }
 }

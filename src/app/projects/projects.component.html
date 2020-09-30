@@ -1,0 +1,14 @@
+<div class = "projects">
+    <h3>Projects</h3>
+    <ul>
+        <li *ngFor="let project of allProjects; index as i"
+            class="low"
+            [class.active]="allProjects.active == i"
+            (click)="onMouseClick(i)">
+            <span>{{ project.title }}</span>
+        </li>
+    </ul>
+    <button id="new" (click)="onClickNew()">NEW</button>
+    <button id="delete" (click)="onClickDelete()">DELETE</button>
+</div>
+<app-project [project]="activeProject"></app-project>

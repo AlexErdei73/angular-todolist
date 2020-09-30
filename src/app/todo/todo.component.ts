@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TodoComponent implements OnInit {
 
-  @Input() public todo: Todo = new Todo();
+  @Input() public todo = new Todo();
   public dateString: string;
   
   constructor() {}
@@ -28,7 +28,11 @@ export class TodoComponent implements OnInit {
 
   onChangeDate(e) {
     const inputDate = e.target;
-    this.todo.dueDate = inputDate.value;
+    if (!inputDate.value) {
+      this.todo.dueDate = new Date(0);
+    } else {
+      this.todo.dueDate = new Date(inputDate.value);
+    }
   }
 
   onChangePriority(e) {

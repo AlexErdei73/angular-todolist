@@ -1,7 +1,9 @@
 <div class = "todos">
     <h3>Project</h3>
     <label for = "title">Title</label><br>
-    <input type = "text" id = "title"><br>
+    <input type = "text" id = "title"
+        [value]="project.title"
+        (blur)="onChangeTitle($event)"><br>
     <ul>
         <li *ngFor="let todo of project; index as i"
             [class]="todo.priority"
