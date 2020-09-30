@@ -1,5 +1,5 @@
 import { Todo } from './../model/todo';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-todo',
@@ -8,21 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoComponent implements OnInit {
 
-  public todo: Todo = new Todo();
+  @Input() public todo: Todo = new Todo();
   public dateString: string;
   
   constructor() {}
 
   ngOnInit(): void {
-    this.todo.title = 'ToDo Object';
-    this.todo.description = 
-      `We make a todo object, which stores the data of the todo.`;
-    this.todo.dueDate = new Date('2020-09-30');
-    this.dateString = 
-      this.todo.dueDate.toISOString().slice(0, 10);
-    console.log(this.dateString);
-    this.todo.priority = 'high';
-    this.todo.notes = [ 'This is the first Angular version' ];
   }
 
   onChangeTitle(e) {

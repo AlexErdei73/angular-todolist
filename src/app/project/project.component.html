@@ -3,11 +3,18 @@
     <label for = "title">Title</label><br>
     <input type = "text" id = "title"><br>
     <ul>
-        <li *ngFor="todo in project">
+        <li *ngFor="let todo of project; index as i"
+            [class]="todo.priority"
+            [class.active]="project.active == i"
+            (click)="onMouseClick(i)">
             <span>{{ todo.title }}</span>
-            <span>{{ todo.dueDate }}</span>
+            <span id="duedate"
+             *ngIf="todo.dueDate.valueOf() != 0">
+                {{ todo.dueDate.toISOString().slice(0, 10) }}
+            </span>
         </li>
     </ul>
     <button id = "new">NEW</button>
     <button id = "delete">DELETE</button>
 </div>
+<app-todo [todo]="activeTodo"></app-todo>
