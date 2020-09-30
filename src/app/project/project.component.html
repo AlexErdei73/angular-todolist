@@ -1,0 +1,13 @@
+<div class = "todos">
+    <h3>Project</h3>
+    <label for = "title">Title</label><br>
+    <input type = "text" id = "title"><br>
+    <ul>
+        <li *ngFor="todo in project">
+            <span>{{ todo.title }}</span>
+            <span>{{ todo.dueDate }}</span>
+        </li>
+    </ul>
+    <button id = "new">NEW</button>
+    <button id = "delete">DELETE</button>
+</div>
