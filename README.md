@@ -1,5 +1,8 @@
 # Todolist
-
+This is the Angular version of the ToDoList project from the Odin project. It was surprisingly easy
+to make this project with Angular, compared to the vanilla JavaScript solution. The explanation is that
+the frontend framework can simplify tremendiously the handling of the view. The application logic can be
+very complex in vanialla JavaScript regarding the DOM manipulations, as we can see it from this example. 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
 
 ## Development server
