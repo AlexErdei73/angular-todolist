@@ -49,4 +49,8 @@ export class Todo {
         return this._notes;
     }
 
+    get dateString() {
+        return this.dueDate.toISOString().slice(0, 10);
+    }
+
 }

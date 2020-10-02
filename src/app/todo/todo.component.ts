@@ -9,7 +9,6 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TodoComponent implements OnInit {
 
   @Input() public todo = new Todo();
-  public dateString: string;
   
   constructor() {}
 
