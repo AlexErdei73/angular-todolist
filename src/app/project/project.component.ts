@@ -13,7 +13,7 @@ import { storage } from '../storage/storage';
 export class ProjectComponent implements OnInit {
   @Input() public project = new Project('');
   @Input() public projects: Projects;
-  public activeTodo: Todo;
+  @Input() public activeTodo: Todo;
   
   constructor() { }
 

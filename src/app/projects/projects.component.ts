@@ -25,7 +25,8 @@ export class ProjectsComponent implements OnInit {
     this.allProjects.active = 0;
     if (localStorage.getItem('.length')) this.load()
       else this.save();
-    this.activeProject = this.allProjects[this.allProjects.active];
+    const active = this.allProjects.active;
+    this.activeProject = this.allProjects[active];
   }
 
   onMouseClick(index: number) {
